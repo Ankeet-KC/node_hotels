@@ -3,9 +3,14 @@ database server(mongoDb server)
 Mongoose helps in making connection between those two servers */
 
 const mongoose = require('mongoose')
+require('dotenv').config()
 
 //Define mongoDB connection URL
-const mongoDbUrl = 'mongodb://localhost:27017/myHotels'
+//local Database connection
+// const mongoDbUrl = process.env.MONGODB_URL_LOCAL 
+
+//Global Database connection => never use @ in password
+const mongoDbUrl = process.env.MONGODB_URL
 
 //Setup MongoDb connection
 mongoose.connect(mongoDbUrl, {

@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const db = require("./db");
-
+require('dotenv').config()
 
 
 /* Body Parser: It is a middleware that extracts the JSON data from requests,
@@ -31,6 +31,9 @@ const menuRoutes = require('./routes/menuRoutes')
 //Mounting
 app.use('/menuItems',menuRoutes)
 
-app.listen(3000, () => {
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
   console.log("Listening at port no.3000");
 });
+
+//Comment
